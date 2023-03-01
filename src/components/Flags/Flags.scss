@@ -4,6 +4,12 @@
   display: grid;
 }
 
+@media (max-width: 768px) {
+  .flags {
+    margin: 0 30px;
+  }
+}
+
 @media (max-width: 480px) {
   .flags {
     margin: 10px;
