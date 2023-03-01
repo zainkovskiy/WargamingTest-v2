@@ -1,0 +1,98 @@
+@use 'src/base';
+
+.card-full {
+  background-color: #0b344d;
+  box-shadow: 0 0 18px 10px rgb(0 0 0 / 13%);
+  padding: 1rem;
+  margin: 1rem 0 0 0;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &_left{
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__flag{
+    height: 40px;
+    width: 60px;
+    display: inline-block;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &__title {
+    @extend %font_Roboto_Condensed;
+    color: base.$primary-color;
+    font-size: 24px;
+    opacity: 0.7;
+  }
+
+  &__bottom {
+    display: flex;
+    margin: 1rem 0 0 0;
+    height: 50vh;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    justify-content: flex-end;
+  }
+
+  &__info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  &__descrition {
+    @extend %font_Roboto_Condensed;
+    color: base.$primary-color;
+    margin: 0;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+  }
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-full__bottom {
+    height: 40vh;
+    background-position: top;
+    background-size: 80%;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .card-full__info {
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .card-full__bottom {
+    height: 30vh;
+    background-position: top;
+    background-size: 80%;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .card-full__info {
+    width: 100%;
+  }
+}
