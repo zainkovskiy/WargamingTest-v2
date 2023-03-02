@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { classes } from 'assets/classes';
 import { level } from 'assets/levels';
@@ -7,6 +8,7 @@ import premium from 'images/premium.png';
 import './CardShip.scss';
 
 export const CardShip = ({ ship, urlFlag }) => {
+  const location = useLocation();
   const lng = useSelector((state) => state.language.get('language'));
   const getPremium = () => {
     if (ship.tags.includes('premium')) {
@@ -14,7 +16,7 @@ export const CardShip = ({ ship, urlFlag }) => {
     }
   }
   return (
-    <Link to={`/ship/${ship.name}`} state={{ ship: ship, urlFlag: urlFlag }}> 
+    <Link to={`/ship/${ship.name}`} state={{ ship: ship, urlFlag: location.state.url }}> 
       <div className='card-small'>
         <div className='card-small__top'>
           <span className='card-small__title'>{ship.localization.mark[lng]}</span>

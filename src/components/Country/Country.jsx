@@ -13,10 +13,7 @@ export const Country = () => {
     <>
       <div className='container' name='country-top'>
         <div className='country'>
-          <CountryHead
-            url={location.state.url}
-            currentFlag={flag}
-          />
+          <CountryHead/>
           <Cards/>
         </div>
       </div>

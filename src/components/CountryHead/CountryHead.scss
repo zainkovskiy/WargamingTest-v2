@@ -5,6 +5,9 @@
   background-repeat: no-repeat;
   background-size: 45%;
   background-position: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   &__title{
     @extend %font_Roboto_Condensed;
     color: base.$primary-color;
@@ -20,10 +23,5 @@
 @media (max-width: 768px) {
   .country-head {
     height: 200px;
-  }
-}
-@media (max-width: 480px) {
-  .country-head {
-    height: 100px;
   }
 }

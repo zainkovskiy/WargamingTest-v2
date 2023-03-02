@@ -1,25 +1,24 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { useLocation, useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { setFilterCountry, resetFilter } from 'actions/ships';
 import { CardShip } from 'components/CardShip';
 import './Cards.scss';
 
 export const Cards = () => {
   const { flag } = useParams();
-  const location = useLocation();
-  const ships = useSelector((state) => state.ships.get('ships').filter(item => item.nation === flag));
-  const sortShips = () => {
-    ships.sort((a, b) => {
-      if (a.level < b.level) {
-        return -1;
-      }
-      if (a.level > b.level) {
-        return 1;
-      }
-      return 0;
-    })
-  };
-  sortShips();
+  const ships = useSelector((state) => state.ships.get('filterCountry'));
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    getFiltredShips();
+  }, [])
+
+  const getFiltredShips = () => {
+    dispatch(setFilterCountry(flag));
+    dispatch(resetFilter(flag));
+  }
+
   return (
     <div className='cards'>
       {
@@ -27,7 +26,6 @@ export const Cards = () => {
           <CardShip
             key={idx}
             ship={ship}
-            urlFlag={location.state.url}
           />
         )
       }
